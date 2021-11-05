@@ -17,12 +17,10 @@ namespace backend
         private IHost _host;
         public Program(string[] args)
         {
-            _host = CreateAppHostBuilder(args)
-                .Build();
+            _host = CreateAppHostBuilder(args).Build();
             _logger = _host.Services.GetRequiredService<ILogger<Program>>();
         }
 
-        public void Run(){}
         public async Task RunAsync(CancellationToken cancellationToken = default)
         {
             _logger.LogInformation("Application starting");
