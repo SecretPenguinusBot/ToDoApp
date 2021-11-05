@@ -9,10 +9,7 @@ namespace backend.Api.Health
     public class HealthController : ControllerBase
     {
         private readonly ApplicationContext _context;
-        public HealthController(ApplicationContext context)
-        {
-            _context = context;
-        }
+        public HealthController(ApplicationContext context) => _context = context;
 
         [HttpGet]
         public IActionResult GetAppConteInfo() => Ok(_context);
