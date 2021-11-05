@@ -15,7 +15,7 @@ namespace backend
 
         public void ConfigureServices(IServiceCollection services)
         {
-            Console.WriteLine(_configuration.GetConnectionString("ApplicationDbContext"));
+            services.AddSwaggerGen();
             services.AddControllers()
                 .AddNewtonsoftJson();
             services.AddDbContext<ApplicationDbContext>(builder => 
@@ -27,6 +27,11 @@ namespace backend
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();
+            app.UseSwagger();
+            app.UseSwaggerUI(conf => 
+            {
+                conf.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseEndpoints(epConfig => 
             {
                 epConfig.MapControllers();

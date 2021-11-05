@@ -20,6 +20,11 @@ namespace backend.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Project>()
+                .HasMany(x=>x.ToDoItems)
+                .WithOne(x=>x.Project)
+                .OnDelete(DeleteBehavior.Cascade);
+            
             base.OnModelCreating(modelBuilder);
         }
     }    
