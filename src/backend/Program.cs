@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using backend.Application;
 using backend.Application.ServerTime;
 using backend.Data.Repositories.ProjectsRepo;
-using backend.Data.Repositories.ToDoRepo;
+using backend.Data.Repositories.ToDoRepoImpl;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -53,7 +53,7 @@ namespace backend
             services.AddSingleton<IServerTime, ServerTimeImpl>();
             services.AddSingleton<ApplicationContext>();
             services.AddHostedService<ApplicationBootrstrap>();
-            services.AddScoped<ToDoRepo>();
+            services.AddScoped<ToDoRepoImplImpl>();
             services.AddScoped<ProjectsRepoImpl>();
         }
 

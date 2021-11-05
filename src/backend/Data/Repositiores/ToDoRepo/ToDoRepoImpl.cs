@@ -6,14 +6,14 @@ using backend.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace backend.Data.Repositories.ToDoRepo
+namespace backend.Data.Repositories.ToDoRepoImpl
 {
-    public class ToDoRepo
+    public class ToDoRepoImplImpl
     {
         private readonly ApplicationDbContext _db;
-        private readonly ILogger<ToDoRepo> _logger;
+        private readonly ILogger<ToDoRepoImplImpl> _logger;
 
-        public ToDoRepo(ApplicationDbContext db, ILogger<ToDoRepo> logger)
+        public ToDoRepoImplImpl(ApplicationDbContext db, ILogger<ToDoRepoImplImpl> logger)
         {
             _db = db;
             _logger = logger;
